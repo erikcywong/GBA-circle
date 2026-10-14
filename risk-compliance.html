@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>风险与合规 · 港澳生态园方案深度解码</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .chk{list-style:none;margin:6px 0 0 0}
+  .chk li{position:relative;padding-left:26px;margin:8px 0;font-size:13.6px;color:var(--text-dim)}
+  .chk li::before{
+    content:"☐";position:absolute;left:0;top:-1px;color:var(--accent);font-size:15px;
+  }
+  .chk li.critical::before{content:"☒";color:var(--danger)}
+  .chk li b{color:var(--text)}
+  .flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;margin:18px 0}
+  .flow .node{
+    flex:1;min-width:132px;background:var(--panel-2);border:1px solid var(--border);
+    border-radius:var(--radius-sm);padding:13px 14px;font-size:12.6px;color:var(--text-dim);
+    position:relative;
+  }
+  .flow .node b{display:block;color:var(--text);font-size:13.4px;margin-bottom:4px}
+  .flow .arw{
+    display:flex;align-items:center;padding:0 9px;color:var(--muted);font-size:16px;flex:none;
+  }
+  .flow.bad .node{border-color:rgba(244,33,46,.42);background:rgba(244,33,46,.06)}
+  .flow.good .node{border-color:rgba(0,186,124,.42);background:rgba(0,186,124,.06)}
+  @media(max-width:760px){.flow{flex-direction:column}.flow .arw{transform:rotate(90deg);padding:6px 0;justify-content:center}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="hdr-inner">
+    <div class="brand"><span class="dot"></span>港澳生态园 · 方案解码<span class="sub">/ ANALYSIS</span></div>
+    <nav class="nav">
+      <div class="nav-item">
+        <a href="index.html" data-page="index.html">总览 <span class="caret">▼</span></a>
+        <div class="drop">
+          <a href="feasibility.html">可行性分析<span class="k">市场 · 资源 · 合规 · 技术 · 组织 · 时间</span></a>
+          <a href="logic.html">逻辑性分析<span class="k">逻辑栈 · 一致性矩阵 · 矛盾清单</span></a>
+          <a href="business-model.html">商业模式<span class="k">九宫格画布 · 渠道结构</span></a>
+          <a href="profit-model.html">盈利模式<span class="k">单位经济 · 佣金负担 · 盈亏平衡</span></a>
+          <a href="risk-compliance.html">风险与合规<span class="k">二清 · 跨境税务 · 牌照清单</span></a>
+          <a href="roadmap.html">落地建议<span class="k">P0–P3 优先级 · 90 天修正版</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="feasibility.html" data-page="feasibility.html">可行性</a></div>
+      <div class="nav-item"><a href="logic.html" data-page="logic.html">逻辑性</a></div>
+      <div class="nav-item"><a href="business-model.html" data-page="business-model.html">商业模式</a></div>
+      <div class="nav-item"><a href="profit-model.html" data-page="profit-model.html">盈利模式</a></div>
+      <div class="nav-item"><a href="risk-compliance.html" data-page="risk-compliance.html">风险合规</a></div>
+      <div class="nav-item"><a href="roadmap.html" data-page="roadmap.html">落地建议</a></div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">Section 05 / Risk &amp; Compliance</span>
+    <h1>风险与合规</h1>
+    <p class="lead">
+      三份文档在合规上只写了一行提醒。本节把风险拆成 12 项并给出概率×影响分布，
+      然后把最容易被忽略的两件事算清楚：<strong>跨境付汇的代扣代缴成本</strong>，和<strong>数据出境的判定边界</strong>。
+    </p>
+    <div class="meta">
+      <span class="badge b-danger">3 项极高影响风险</span>
+      <span class="badge b-warn">跨境付汇税负 ≈ 佣金的 11–16%</span>
+      <span class="badge b-info">数据出境：判定边界清楚，管控得住</span>
+    </div>
+  </div>
+</section>
+
+<!-- 风险矩阵 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">一、风险矩阵：概率 × 影响</h2>
+    <p class="sec-desc">右上角（高概率 + 高影响）是必须在前 90 天解决的事项，不是"以后再说"。</p>
+    <div class="chart tall" id="riskChart"></div>
+    <div class="tbl-note">气泡大小表示"可控难度"——越大越难通过自身努力降低。</div>
+  </div>
+</section>
+
+<!-- 风险详表 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">二、12 项风险逐条</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>#</th><th>风险</th><th class="num">概率</th><th class="num">影响</th><th>触发信号</th><th>缓解措施</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">R1</td><td class="strong">土地用途不合规<br><span class="dim small">农用地 / 设施农用地被用于餐饮住宿</span></td>
+            <td class="num" style="color:var(--warn)">中</td><td class="num neg">极高</td>
+            <td>仅口头承诺"可以搞"；无建设用地指标；村集体未出具书面同意</td>
+            <td>取得<strong>书面土地用途确认</strong>；走集体经营性建设用地入市 / 点状供地；入场前完成合规意见书</td>
+          </tr>
+          <tr>
+            <td class="mono">R2</td><td class="strong">无证经营旅行社业务<br><span class="dim small">园区自组"直营团"并收取团费</span></td>
+            <td class="num neg">高</td><td class="num neg">高</td>
+            <td>L3 文档中"客户可转园区直营团"落地为实际收款组团</td>
+            <td>与持牌旅行社签约由其承接；或自行申请《旅行社业务经营许可证》（需保证金 + 质保金）</td>
+          </tr>
+          <tr>
+            <td class="mono">R3</td><td class="strong">跨境付汇未备案 / 未代扣代缴<br><span class="dim small">向港澳旅行社支付佣金</span></td>
+            <td class="num neg">高</td><td class="num" style="color:var(--warn)">中高</td>
+            <td>以"服务费"名义直接汇款；无税务备案表；未代扣增值税与预提所得税</td>
+            <td>办理对外支付税务备案；按 6% 代扣增值税、按协定税率代扣所得税；<strong>把税负纳入佣金成本模型</strong></td>
+          </tr>
+          <tr>
+            <td class="mono">R4</td><td class="strong">支付"二清"风险<br><span class="dim small">客户资金先进旅行社账户再转园区</span></td>
+            <td class="num" style="color:var(--warn)">中</td><td class="num neg">极高</td>
+            <td>合同约定"旅行社代收团费后转账"；无持牌机构参与</td>
+            <td>坚持"园区统一收款 + 归因 + 持牌分账/月结"；L2 文档方向已正确，写入合同即可</td>
+          </tr>
+          <tr>
+            <td class="mono">R5</td><td class="strong">数据出境未评估<br><span class="dim small">渠道端可见客户个人明细</span></td>
+            <td class="num" style="color:var(--warn)">中</td><td class="num" style="color:var(--warn)">中</td>
+            <td>港澳门店端展示本团客户姓名、年龄段、联系方式</td>
+            <td>渠道端只显示<strong>聚合人数与金额</strong>，不显示个人明细；L3 的"三层可见性"已满足，固化为制度</td>
+          </tr>
+          <tr>
+            <td class="mono">R6</td><td class="strong">渠道预收团费后失踪</td>
+            <td class="num" style="color:var(--warn)">中</td><td class="num neg">高</td>
+            <td>新签约渠道即要求月结；拒绝预付；报名人数远大于历史水平</td>
+            <td>新渠道前 2 个月全额预付；保证金制度；T-3 锁位；巴士扫码与报名人数交叉校验</td>
+          </tr>
+          <tr>
+            <td class="mono">R7</td><td class="strong">广告法违规<br><span class="dim small">"全球首创""独家"等绝对化用语</span></td>
+            <td class="num" style="color:var(--warn)">中</td><td class="num" style="color:var(--warn)">中</td>
+            <td>宣传素材使用"全球第一""唯一"而未附专利或认证编号</td>
+            <td>所有宣传语附专利/认证编号与查询方式；未获批前改用"国内领先的雾化咖啡种植探索"</td>
+          </tr>
+          <tr>
+            <td class="mono">R8</td><td class="strong">水疗 / 鱼疗卫生事故</td>
+            <td class="num pos">低</td><td class="num neg">高</td>
+            <td>鱼池消毒记录缺失；水质检测频次不足；技师无健康证</td>
+            <td>建立每日水质检测与消毒台账；鱼池分批轮换；技师持证上岗；不做任何医疗功效宣传</td>
+          </tr>
+          <tr>
+            <td class="mono">R9</td><td class="strong">食品安全事故<br><span class="dim small">生食鱼生类菜品</span></td>
+            <td class="num pos">低</td><td class="num neg">极高</td>
+            <td>菜单出现顺德鱼生等生食菜品；无冷食类经营许可</td>
+            <td><strong>原文建议主推熟食的判断正确且必须坚持</strong>；若保留生食需另办冷食类许可并建立留样制度</td>
+          </tr>
+          <tr>
+            <td class="mono">R10</td><td class="strong">非法营运<br><span class="dim small">自有非营运车辆载客收费</span></td>
+            <td class="num" style="color:var(--warn)">中</td><td class="num" style="color:var(--warn)">中</td>
+            <td>用员工自有车 / 非营运中巴接送游客</td>
+            <td>接驳外包给持证客运企业；或自行申请《道路运输经营许可证》并配营运车辆</td>
+          </tr>
+          <tr>
+            <td class="mono">R11</td><td class="strong">舆情风险<br><span class="dim small">"静默风控"被解读为暗箱克扣佣金</span></td>
+            <td class="num" style="color:var(--warn)">中</td><td class="num neg">高</td>
+            <td>渠道社群出现"园区有秘密评分""暗箱扣佣金"传言</td>
+            <td><strong>立即改名</strong>为"履约信用与资源预锁机制"；规则附件全员公开；设评分申诉通道</td>
+          </tr>
+          <tr>
+            <td class="mono">R12</td><td class="strong">渠道集中度过高<br><span class="dim small">70%+ 客流依赖港澳旅行社</span></td>
+            <td class="num neg">高</td><td class="num neg">高</td>
+            <td>渠道端要求更低价、更高佣金、更长账期，无议价余地</td>
+            <td>设"直客占比 ≥ 30%"为硬指标；会员码强制过一遍园区账户；认养 / 礼盒 / 电商独立收入线</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 资金模式 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">三、资金路径：三种模式，两种违法</h2>
+
+    <h4 class="mini">模式 A · 禁止 —— 资金过手渠道</h4>
+    <div class="flow bad">
+      <div class="node"><b>客户</b>在旅行社门店付款</div>
+      <div class="arw">→</div>
+      <div class="node"><b>旅行社账户</b>收团费（无支付牌照）</div>
+      <div class="arw">→</div>
+      <div class="node"><b>旅行社转账</b>给园区（扣佣金后）</div>
+    </div>
+    <p><strong>两个问题：</strong>① 旅行社无牌照从事资金归集与转付，可能构成<strong>无证支付结算（"二清"）</strong>；② 园区承担旅行社破产、挪用、跑路的全部风险。<strong>L2 文档明确指出这一点，判断完全正确，必须坚持。</strong></p>
+
+    <h4 class="mini">模式 B · 推荐（内地主体渠道）—— 统一收款 + 持牌分账</h4>
+    <div class="flow good">
+      <div class="node"><b>客户扫码付款</b>进园区商户号</div>
+      <div class="arw">→</div>
+      <div class="node"><b>系统归因</b>识别渠道 / 团 / 巴士</div>
+      <div class="arw">→</div>
+      <div class="node"><b>持牌分账</b>T+1 / T+7 自动分账给渠道子商户</div>
+    </div>
+
+    <h4 class="mini">模式 C · 港澳渠道的必然形态 —— 统一收款 + 月结 + 跨境付汇</h4>
+    <div class="flow good">
+      <div class="node"><b>客户扫码付款</b>进园区商户号（<span class="dim">收单需持牌机构支持港澳钱包</span>）</div>
+      <div class="arw">→</div>
+      <div class="node"><b>系统归因 + 出结算单</b>（月结，最低 HK$1,000 起结）</div>
+      <div class="arw">→</div>
+      <div class="node"><b>跨境付汇</b>：税务备案 → 代扣代缴 → 汇款至港澳账户</div>
+    </div>
+
+    <div class="callout warn">
+      <div class="t">◆ 为什么"持牌分账"解决不了港澳渠道的问题</div>
+      <p>
+        分账系统的分账接收方必须是<strong>该收单机构体系内的子商户</strong>，而成为子商户通常要求持有内地营业执照与结算账户。
+        绝大多数香港、澳门的<strong>中小旅行社没有内地主体</strong>。因此对港澳渠道而言，落地的现实路径就是<strong>月结 + 跨境付汇</strong>——
+        这条路径的成本与合规要求，恰恰是原文完全没有提及的。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 跨境税务 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">四、被漏掉的一笔账：跨境付汇的税务成本</h2>
+    <p class="sec-desc">向港澳旅行社支付佣金 = 向境外支付服务费。这是要缴税的，而且不小。</p>
+
+    <div class="grid g2" style="align-items:start">
+      <div>
+        <div class="tbl-wrap">
+          <table style="min-width:440px">
+            <thead><tr><th>项目</th><th class="num">金额 / 税率</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>假设：月度佣金总额</td><td class="num">HK$300,000</td><td>≈ ¥276,000</td></tr>
+              <tr><td>代扣增值税</td><td class="num neg">6%</td><td>≈ ¥16,560</td></tr>
+              <tr><td>预提企业所得税（无税收协定）</td><td class="num neg">10%</td><td>≈ ¥27,600</td></tr>
+              <tr><td>预提企业所得税（适用内地—香港安排，5%）</td><td class="num" style="color:var(--warn)">5%</td><td>≈ ¥13,800，需符合"受益所有人"条件</td></tr>
+              <tr><td class="strong">合计税负（区间）</td><td class="num neg"><strong>¥30,360 – ¥44,160</strong></td><td class="neg">约占佣金总额的 <strong>11% – 16%</strong></td></tr>
+              <tr><td class="strong">等效佣金率抬升</td><td class="num neg">+2 ~ 3 pp</td><td class="neg">18% 的名义佣金 ≈ 20–21% 的实际成本</td></tr>
+              <tr><td>对外支付税务备案门槛</td><td class="num">单笔 ≥ US$50,000</td><td>需先备案后付汇</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="callout danger">
+          <div class="t">◆ 这条账改变了一个结论</div>
+          <p>
+            在 <a href="profit-model.html">盈利模式</a> 中，我们把佣金从 20% 压到 15–18% 定为关键动作。
+            现在看：<strong>名义佣金 18% + 跨境税负 11–16% ≈ 实际成本 20–21%</strong>。
+            也就是说，跨境付汇的税负几乎把"降佣金"的努力全部吃掉。
+          </p>
+          <p class="mt8">
+            这带来两条更硬的建议：
+          </p>
+          <ul style="margin-top:6px">
+            <li>把<strong>港澳渠道名义佣金压到 15%</strong>，为税负留出空间，使实际成本仍控制在 17% 以内；</li>
+            <li>或改变激励结构——<strong>用实物激励（免费房券、鱼宴券、员工旅游名额）替代一部分现金佣金</strong>。实物不产生跨境付汇，也不产生预提所得税，且能引导渠道员工亲自到园体验产品。</li>
+          </ul>
+        </div>
+        <div class="callout info">
+          <div class="t">◆ 还需核实的三项</div>
+          <p>① 港澳旅行社是否需要在内地办理税务登记或提供税务信息；② 澳门方适用的是内地—澳门税收安排还是其他安排；③ 佣金是否可被认定为"境内劳务"从而适用不同处理。建议由本地税务师出具书面意见。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 数据合规 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">五、数据合规：边界清楚，管控得住</h2>
+
+    <div class="grid g2" style="align-items:start">
+      <div class="card acc-ok">
+        <h3><span class="icon">✓</span>合规的那一半（数据不出境）</h3>
+        <p>数据在<strong>内地采集、内地存储、内地处理</strong>，不构成数据出境。以下功能全部安全：</p>
+        <ul>
+          <li>扫码归因、客户绑定、渠道归因</li>
+          <li>团码核销、巴士扫码、到站打卡</li>
+          <li>佣金计算、结算单生成</li>
+          <li>园区后台的数据画像与看板</li>
+        </ul>
+        <p class="small dim">依据：PIPL 第 38–39 条关于出境的判定，核心是"是否向境外提供"。</p>
+      </div>
+      <div class="card acc-warn">
+        <h3><span class="icon">!</span>需要管控的那一半</h3>
+        <p>以下动作一旦实施，<strong>即构成从内地向港澳提供个人信息（数据出境）</strong>：</p>
+        <ul>
+          <li>港澳门店端登录系统查看<strong>本团客户姓名 / 联系方式 / 年龄段明细</strong></li>
+          <li>向港澳渠道推送客户名单用于提前联络</li>
+          <li>园区把客户画像数据同步给境外营销服务商</li>
+        </ul>
+        <p class="small"><strong>缓解方案（L3 文档已无意中解决）：</strong>渠道端只显示<strong>聚合数据</strong>——本团人数、已付/待付金额、状态、核销进度；不显示任何个人明细。这既满足了渠道的对账需求，又避免了数据出境评估。建议将此固化为《渠道数据可见性规范》并写入合同附件。</p>
+      </div>
+    </div>
+
+    <h4 class="mini">三地法规的交叉要求</h4>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>法域</th><th>法规</th><th>对本案的核心要求</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">内地</td><td>PIPL（个人信息保护法）</td><td>首次扫码明示同意；最小必要；营销需单独同意且可撤回；出境需标准合同备案或安全评估；境内存储</td></tr>
+          <tr><td class="strong">中国香港</td><td>PDPO（个人资料（私隐）条例）</td><td>收集目的与用途须告知；数据使用限于原目的；查询与更正权</td></tr>
+          <tr><td class="strong">中国澳门</td><td>《个人资料保护法》</td><td>需明确同意；敏感数据处理更严格；跨境转移需符合法定条件</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-note">实操建议：同意书做<strong>分层设计</strong>——"必要同意"（用于核销与履约）与"营销同意"（用于推送与画像）分开；未勾选营销同意不影响入园，避免因强制同意导致的渠道抵触与合规瑕疵。</div>
+  </div>
+</section>
+
+<!-- 证照清单 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">六、证照与许可清单</h2>
+    <p class="sec-desc">☒ 标注项为项目的"总开关"，未取得不得开工；☐ 为常规经营许可。</p>
+
+    <div class="grid g2" style="align-items:start">
+      <div class="card flat">
+        <h3>前置与土地</h3>
+        <ul class="chk">
+          <li class="critical"><b>建设用地 / 集体经营性建设用地入市 或 点状供地批复</b>（决定项目能否存在）</li>
+          <li class="critical"><b>营业执照</b>（经营范围须覆盖餐饮、住宿、养殖、洗浴、旅游服务）</li>
+          <li><b>项目环评</b>（餐饮 + 养殖 + 锅炉，视规模）</li>
+          <li><b>水土保持方案</b>（若涉及水面开挖）</li>
+        </ul>
+      </div>
+      <div class="card flat">
+        <h3>餐饮与食品</h3>
+        <ul class="chk">
+          <li class="critical"><b>食品经营许可证</b>（含冷食类类别视菜单而定）</li>
+          <li>从业人员健康证明（全员）</li>
+          <li>食品留样与进货台账制度</li>
+          <li>明厨亮灶（建议，非强制但提升信任）</li>
+        </ul>
+      </div>
+      <div class="card flat">
+        <h3>养殖与水产</h3>
+        <ul class="chk">
+          <li><b>水域滩涂养殖证</b>（自养活鱼前置）</li>
+          <li>水产苗种生产许可证（若自繁苗种）</li>
+          <li>动物防疫条件合格证（活鱼运输环节）</li>
+          <li>养殖尾水处理方案与排水许可</li>
+          <li>垂钓/捕捞相关许可（视水域性质）</li>
+        </ul>
+      </div>
+      <div class="card flat">
+        <h3>水疗与住宿</h3>
+        <ul class="chk">
+          <li class="critical"><b>公共场所卫生许可证</b>（水疗、泳池、洗浴）</li>
+          <li class="critical"><b>特种行业许可证</b>（住宿，公安备案）</li>
+          <li>消防验收 / 备案合格</li>
+          <li>锅炉与压力容器使用登记（热水系统）</li>
+          <li>水质检测报告（按周期更新）</li>
+        </ul>
+      </div>
+      <div class="card flat">
+        <h3>交通与旅游</h3>
+        <ul class="chk">
+          <li class="critical"><b>道路运输经营许可证</b>（自营接驳前置）</li>
+          <li class="critical"><b>旅行社业务经营许可证</b> 或 与持牌社合作（承接"直营团"前置）</li>
+          <li>跨境旅游大巴：两地牌与配额（合作方资质核验）</li>
+          <li>营业性演出许可证（民族表演）</li>
+        </ul>
+      </div>
+      <div class="card flat">
+        <h3>支付、广告与其他</h3>
+        <ul class="chk">
+          <li class="critical"><b>持牌支付机构合作协议</b>（收单 / 分账，禁止自建资金池）</li>
+          <li class="critical"><b>对外支付税务备案</b>（跨境佣金付汇）</li>
+          <li>户外广告设置许可（口岸 / 巴士车身）</li>
+          <li>广告法合规审查（绝对化用语与专利公示）</li>
+          <li>公众责任险 / 食品安全责任险 / 游客意外险 / 水上活动责任险</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 治理 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">七、风险治理机制建议</h2>
+    <div class="grid g3">
+      <div class="card acc-purple">
+        <h3><span class="icon">1</span>三份书面法律意见</h3>
+        <p>开工前委托本地专业机构分别出具：<strong>土地用途意见书</strong>、<strong>旅游与客运资质路径方案</strong>、<strong>数据合规与出境评估意见</strong>。三份文件是投资人尽调的第一道门槛，没有它们，融资基本无从谈起。</p>
+      </div>
+      <div class="card acc-purple">
+        <h3><span class="icon">2</span>合规日历</h3>
+        <p>把卫生许可复检、水质检测、消防年检、健康证换发、保险续保、税务备案续期全部录入系统日历并设置提前 30 天提醒。合规事故几乎都源于"忘了续期"。</p>
+      </div>
+      <div class="card acc-purple">
+        <h3><span class="icon">3</span>舆情预案</h3>
+        <p>为"佣金规则""风控机制""食品安全"三类话题各准备一份对外统一话术。特别是风控话术必须统一为：<strong>"系统按合同和资源紧张度自动要求预付锁位"</strong>——永远不提"评分""风险等级""黑名单"。</p>
+      </div>
+    </div>
+
+    <div class="callout danger mt24">
+      <div class="t">◆ 本节结论</div>
+      <p>
+        合规不是成本，是<strong>准入牌照</strong>。这 12 项风险里，R1（土地）、R2（旅行社资质）、R3（跨境税务）、R4（二清）四项只要有一项没解决，前面所有的商业模式设计、单位经济测算、系统开发投入都是沉没成本。
+        <strong>建议把"合规四项确认"设为项目的 G0 门禁：未通过，不投一分钱工程款。</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="pagenav">
+    <a href="profit-model.html"><div class="dir">上一节</div><div class="tt">← 盈利模式</div></a>
+    <a href="roadmap.html" class="rt"><div class="dir">下一节</div><div class="tt">落地建议 →</div></a>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div>港澳生态园方案 · 深度解码 —— 基于三份原始方案的独立审阅报告</div>
+      <div class="flinks">
+        <a href="index.html">总览</a><a href="feasibility.html">可行性</a><a href="logic.html">逻辑性</a>
+        <a href="business-model.html">商业模式</a><a href="profit-model.html">盈利模式</a>
+        <a href="risk-compliance.html">风险合规</a><a href="roadmap.html">落地建议</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function(){
+  var T = SITE.theme;
+
+  var risks = [
+    {id:'R1',  n:'土地用途不合规',        p:5.5, i:9.8, s:42, c:T.danger, g:'前置'},
+    {id:'R2',  n:'无证经营旅行社业务',    p:7.0, i:7.6, s:32, c:T.danger, g:'前置'},
+    {id:'R3',  n:'跨境付汇未代扣代缴',    p:7.5, i:6.8, s:26, c:T.warn,   g:'财务'},
+    {id:'R4',  n:'支付二清风险',          p:4.6, i:9.6, s:22, c:T.danger, g:'财务'},
+    {id:'R5',  n:'数据出境未评估',        p:4.8, i:5.4, s:20, c:T.warn,   g:'数据'},
+    {id:'R6',  n:'渠道预收后失踪',        p:5.2, i:7.4, s:24, c:T.warn,   g:'渠道'},
+    {id:'R7',  n:'广告法违规',            p:5.6, i:4.6, s:14, c:T.accent, g:'宣传'},
+    {id:'R8',  n:'水疗/鱼疗卫生事故',     p:3.0, i:7.8, s:28, c:T.warn,   g:'运营'},
+    {id:'R9',  n:'食品安全事故',          p:2.6, i:9.4, s:30, c:T.danger, g:'运营'},
+    {id:'R10', n:'非法营运（接驳车）',    p:5.4, i:5.2, s:22, c:T.warn,   g:'前置'},
+    {id:'R11', n:'舆情：风控被解读为暗箱', p:5.8, i:7.2, s:18, c:T.purple, g:'品牌'},
+    {id:'R12', n:'渠道集中度过高',        p:8.2, i:7.8, s:34, c:T.danger, g:'战略'}
+  ];
+
+  SITE.render('riskChart', SITE.base({
+    grid:{left:14,right:28,top:36,bottom:30,containLabel:true},
+    tooltip:{trigger:'item',
+      formatter:function(p){
+        var d = p.data;
+        return '<strong>'+d.id+' · '+d.n+'</strong><br/>发生概率：'+d.value[0]+' / 10<br/>影响程度：'+d.value[1]+' / 10<br/>可控难度：'+d.value[2];
+      }},
+    xAxis:Object.assign(SITE.valAxis('发生概率 →'),{min:0,max:10}),
+    yAxis:Object.assign(SITE.valAxis('影响程度 →'),{min:0,max:10}),
+    series:[{
+      type:'scatter',
+      symbolSize:function(d){return d[2];},
+      data: risks.map(function(r){
+        return { value:[r.p,r.i,r.s], id:r.id, n:r.n,
+          itemStyle:{color:r.c,opacity:.55,borderColor:r.c,borderWidth:1.6},
+          label:{show:true,position:'right',color:T.dim,fontSize:11,formatter:r.id+' '+r.n} };
+      }),
+      markArea:{ silent:true,
+        itemStyle:{color:'rgba(244,33,46,.055)'},
+        label:{show:true,color:'rgba(244,33,46,.75)',fontSize:11.5,position:'insideTopLeft',formatter:'高概率 · 高影响\n必须 90 天内解决'},
+        data:[[{xAxis:5,yAxis:6},{xAxis:10,yAxis:10}]] },
+      markLine:{ silent:true, symbol:'none', lineStyle:{color:T.border,type:'dashed'},
+        data:[{xAxis:5},{yAxis:6}] }
+    }]
+  }));
+})();
+</script>
+</body>
+</html>

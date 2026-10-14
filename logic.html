@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>逻辑性分析 · 港澳生态园方案深度解码</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="hdr-inner">
+    <div class="brand"><span class="dot"></span>港澳生态园 · 方案解码<span class="sub">/ ANALYSIS</span></div>
+    <nav class="nav">
+      <div class="nav-item">
+        <a href="index.html" data-page="index.html">总览 <span class="caret">▼</span></a>
+        <div class="drop">
+          <a href="feasibility.html">可行性分析<span class="k">市场 · 资源 · 合规 · 技术 · 组织 · 时间</span></a>
+          <a href="logic.html">逻辑性分析<span class="k">逻辑栈 · 一致性矩阵 · 矛盾清单</span></a>
+          <a href="business-model.html">商业模式<span class="k">九宫格画布 · 渠道结构</span></a>
+          <a href="profit-model.html">盈利模式<span class="k">单位经济 · 佣金负担 · 盈亏平衡</span></a>
+          <a href="risk-compliance.html">风险与合规<span class="k">二清 · 跨境税务 · 牌照清单</span></a>
+          <a href="roadmap.html">落地建议<span class="k">P0–P3 优先级 · 90 天修正版</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="feasibility.html" data-page="feasibility.html">可行性</a></div>
+      <div class="nav-item"><a href="logic.html" data-page="logic.html">逻辑性</a></div>
+      <div class="nav-item"><a href="business-model.html" data-page="business-model.html">商业模式</a></div>
+      <div class="nav-item"><a href="profit-model.html" data-page="profit-model.html">盈利模式</a></div>
+      <div class="nav-item"><a href="risk-compliance.html" data-page="risk-compliance.html">风险合规</a></div>
+      <div class="nav-item"><a href="roadmap.html" data-page="roadmap.html">落地建议</a></div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">Section 02 / Logic Audit</span>
+    <h1>逻辑性分析</h1>
+    <p class="lead">
+      逐条对账三份文档：<strong>哪些设计是自洽的、哪些数字互相打架、哪些规则整段缺失</strong>。
+      结论先说：逻辑骨架成立，但有 <strong>7 处硬冲突</strong> 会在签约第一个月内集中爆发，
+      另 <strong>5 条关键规则整段缺失</strong>——不是写错了，是没写。
+    </p>
+    <div class="meta">
+      <span class="badge b-ok">逻辑栈自洽</span>
+      <span class="badge b-danger">7 处硬冲突</span>
+      <span class="badge b-warn">5 处规则缺失</span>
+      <span class="badge b-info">缺 L3 → L1 反馈回路</span>
+    </div>
+  </div>
+</section>
+
+<!-- 逻辑栈 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">一、逻辑栈：三层是通的，但只往下流</h2>
+    <p class="sec-desc">三份文档构成一条完整的数据流：业务层定规则 → 系统层执行规则 → 风控层修正规则。方向没问题。问题是这条链是单向的。</p>
+
+    <div class="stack">
+      <div class="stack-item">
+        <div class="no" style="background:var(--accent-soft);color:var(--accent)">L1</div>
+        <div>
+          <div class="tt">业务层 · 定义</div>
+          <div class="dd">输出：产品清单、价格带、渠道清单、佣金承诺、激励政策</div>
+        </div>
+        <div class="rt"><span class="badge b-info">规则来源</span></div>
+      </div>
+      <div class="stack-item">
+        <div class="no" style="background:var(--purple-soft);color:var(--purple)">L2</div>
+        <div>
+          <div class="tt">系统层 · 执行 <span class="dim small">↑ 承接 L1 的规则，转成可计算的引擎</span></div>
+          <div class="dd">输出：归因结果、佣金计算、结算单、团码核销、巴士跟踪、客户画像</div>
+        </div>
+        <div class="rt"><span class="badge b-purple">规则执行</span></div>
+      </div>
+      <div class="stack-item">
+        <div class="no" style="background:var(--warn-soft);color:var(--warn)">L3</div>
+        <div>
+          <div class="tt">风控层 · 修正 <span class="dim small">↑ 消费 L2 的数据，产出授信与锁位决策</span></div>
+          <div class="dd">输出：授信额度、资源锁位/释放、违约记录、虚报预警</div>
+        </div>
+        <div class="rt"><span class="badge b-warn">规则修正</span></div>
+      </div>
+    </div>
+
+    <div class="callout danger">
+      <div class="t">◆ 结构性缺口：缺一条 L3 → L1 的反馈线</div>
+      <p>
+        L3 采集了全案最宝贵的资产——<strong>渠道履约质量数据</strong>（准时付款率、退款率、虚报率、上座率）。
+        但这条数据流没有回到 L1 去<strong>重新定级渠道政策</strong>。
+        结果就是：一个履约 100% 的好渠道，和一个三次虚报的坏渠道，享受同一阶梯佣金、同一返点比例——唯一区别只是"能不能锁位"。
+      </p>
+      <p class="mt8">
+        而 L1 的渠道分级完全是<strong>销量驱动</strong>的（满 1000 人返 2%、满 3000 人返 5%）。
+        销量 ≠ 质量。一个靠虚报人数冲量的渠道，反而比一个老实做量的小渠道拿到更多返点。
+        <strong>这是激励机制设计上的方向性错误。</strong>
+      </p>
+    </div>
+
+    <h4 class="mini">修正建议</h4>
+    <p>把 L1 的渠道分级从「单轴销量」改为<strong>「销量 × 履约质量」双轴</strong>：履约分 ≥ 80 的渠道才解锁最高返点档；连续两月履约分 &lt; 50 的渠道自动降档并转为全额预付。这样 L3 的数据就变成了 L1 的政策输入，闭环成立。</p>
+  </div>
+</section>
+
+<!-- 一致性矩阵 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">二、一致性矩阵</h2>
+    <p class="sec-desc">把 10 个关键设计项在三份文档中的表述差异一次性列出。<span class="badge b-ok">✓ 一致</span> <span class="badge b-warn">△ 部分/含糊</span> <span class="badge b-danger">✗ 冲突或缺失</span></p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>设计项</th>
+            <th class="center">L1 业务层</th>
+            <th class="center">L2 系统层</th>
+            <th class="center">L3 风控层</th>
+            <th>判定</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="strong">资金流向（统一收款）</td><td class="center">未涉及</td><td class="center"><span class="badge b-ok">✓</span></td><td class="center"><span class="badge b-ok">✓</span></td><td><span class="badge b-ok">一致</span> L2/L3 明确反对资金过手渠道</td></tr>
+          <tr><td class="strong">佣金计算口径</td><td class="center"><span class="badge b-danger">✗</span></td><td class="center"><span class="badge b-danger">✗</span></td><td class="center">未涉及</td><td><span class="badge b-danger">冲突</span> 单团人数阶梯 vs 月度累计，两套算法</td></tr>
+          <tr><td class="strong">渠道归属规则</td><td class="center">未涉及</td><td class="center"><span class="badge b-warn">△</span></td><td class="center">未涉及</td><td><span class="badge b-danger">缺失</span> 只对"黄芳码"定义了归因，普通渠道码未定义</td></tr>
+          <tr><td class="strong">结算周期</td><td class="center"><span class="badge b-ok">✓</span> 月结</td><td class="center"><span class="badge b-ok">✓</span> 月结 / 持牌分账</td><td class="center"><span class="badge b-ok">✓</span> 月结 + 交付条件</td><td><span class="badge b-ok">一致</span></td></tr>
+          <tr><td class="strong">客户数据使用边界</td><td class="center">未涉及</td><td class="center"><span class="badge b-ok">✓</span> 最小必要、可撤回</td><td class="center"><span class="badge b-warn">△</span> 用于信用评估需披露</td><td><span class="badge b-warn">部分</span> 边界清晰，但缺"渠道端不得见个人明细"的硬规则</td></tr>
+          <tr><td class="strong">资源锁位规则</td><td class="center">未涉及</td><td class="center"><span class="badge b-warn">△</span> 提到自动锁位</td><td class="center"><span class="badge b-ok">✓</span> T-3 预付才锁位</td><td><span class="badge b-warn">部分</span> 规则清楚，但全案无任何容量数字</td></tr>
+          <tr><td class="strong">客源目标 vs 承载能力</td><td class="center"><span class="badge b-warn">△</span> 1500–3000 人/月</td><td class="center">未涉及</td><td class="center">未涉及</td><td><span class="badge b-danger">缺失</span> 无容量上限、无盈亏平衡对照</td></tr>
+          <tr><td class="strong">财务与成本模型</td><td class="center"><span class="badge b-danger">✗</span></td><td class="center"><span class="badge b-danger">✗</span></td><td class="center"><span class="badge b-danger">✗</span></td><td><span class="badge b-danger">全缺</span> 三份文档合计 0 个成本数字</td></tr>
+          <tr><td class="strong">合规责任划分</td><td class="center"><span class="badge b-warn">△</span> 一行提醒</td><td class="center"><span class="badge b-ok">✓</span> 提及二清与 PIPL</td><td class="center"><span class="badge b-ok">✓</span> 提及申诉通道</td><td><span class="badge b-warn">部分</span> 缺旅行社资质与车辆营运资质的自查</td></tr>
+          <tr><td class="strong">系统实施节奏</td><td class="center"><span class="badge b-ok">✓</span> 90 天首发团</td><td class="center"><span class="badge b-ok">✓</span> MVP 2–3 月</td><td class="center">未涉及</td><td><span class="badge b-ok">基本一致</span> 90 天 ≈ 3 个月，边界可对齐</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 硬冲突 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">三、7 处硬冲突逐条对账</h2>
+    <p class="sec-desc">"硬冲突"的定义：同一件事，两份文档给出不同答案，且签约后在实务中必须二选一。这类冲突不会自己消失，会在第一次对账时爆发。</p>
+
+    <div class="chart tall" id="commChart"></div>
+    <div class="tbl-note">佣金率对比：L1 取原文价格区间与佣金区间折算的中值，L2 取文档明确列出的百分比。</div>
+
+    <div class="mt24">
+
+      <div class="card flat" style="border-left:3px solid var(--danger)">
+        <h3><span class="badge b-danger">C1</span> 佣金按"单团人数"还是按"月度累计"？</h3>
+        <div class="grid g2" style="margin-top:10px">
+          <div class="quote" style="margin:0">10 人以下 15%，10—30 人 20%，30 人以上 25%<cite>— L1 阶梯佣金</cite></div>
+          <div class="quote" style="margin:0">香港旅行社 / 一日游 / 20% / 月满 50 人<cite>— L2 佣金规则表</cite></div>
+        </div>
+        <p class="mt16"><strong>为何必炸：</strong>一个 35 人的团，按 L1 拿 25%，按 L2 只有 20%。渠道必然主张 L1。更糟的是 L1 的口径会被系统性套利——代理商可以把一个 35 人团拆成 3 个小团，或者把 3 个小团拼成 1 个大团，只挑对自己有利的算法。</p>
+        <p><strong>建议统一为：</strong>基础佣金按<strong>月度累计人数</strong>分档（避免拆分套利），单团规模只作为<strong>一次性奖励</strong>（如满 30 人团额外送水疗体验券），不参与百分比计算。</p>
+      </div>
+
+      <div class="card flat" style="border-left:3px solid var(--danger);margin-top:14px">
+        <h3><span class="badge b-danger">C2</span> 自由行套票佣金：13–27% 还是 10%？</h3>
+        <div class="grid g2" style="margin-top:10px">
+          <div class="quote" style="margin:0">自由行套票 建议价 299—399 港币/人 … 旅行社佣金 50—80 港币/人<cite>— L1</cite></div>
+          <div class="quote" style="margin:0">OTA / 自由行套票 / 10% / 核销后<cite>— L2 佣金规则表</cite></div>
+        </div>
+        <p class="mt16"><strong>折算：</strong>HK$50–80 对应 HK$299–399 的售价，佣金率是 <strong>12.5%–26.8%</strong>；L2 写死 10%。<strong>差了 2.7 倍。</strong></p>
+        <p><strong>建议：</strong>区分渠道类型。港澳门店旅行社 18%，OTA（Klook/KKday/Trip.com）10–12%，直客虚拟码 0%。按渠道类型定价，而不是一个套票一个价。</p>
+      </div>
+
+      <div class="card flat" style="border-left:3px solid var(--danger);margin-top:14px">
+        <h3><span class="badge b-danger">C3</span> 两天一夜佣金：12–19% 还是 25%？</h3>
+        <div class="grid g2" style="margin-top:10px">
+          <div class="quote" style="margin:0">两天一夜 建议价 899—1299 港币 … 旅行社佣金 150—250 港币<cite>— L1</cite></div>
+          <div class="quote" style="margin:0">澳门旅行社 / 两日一夜 / 25% / 含民宿<cite>— L2 佣金规则表</cite></div>
+        </div>
+        <p class="mt16"><strong>折算：</strong>L1 口径下佣金率 11.5%–27.8%（中值约 18%），L2 给澳门渠道明确 25%。含住宿的团本身就重成本，25% 佣金 + 民宿成本 + 四餐 + 水疗，单位经济需要重新验算（见 <a href="profit-model.html">盈利模式</a>）。</p>
+      </div>
+
+      <div class="card flat" style="border-left:3px solid var(--danger);margin-top:14px">
+        <h3><span class="badge b-danger">C4</span> 水疗佣金：HK$30–50 还是 10%？</h3>
+        <div class="quote" style="margin-top:10px">水疗单卖，旅行社佣金 30—50 港币<cite>— L1 水疗专项</cite></div>
+        <div class="quote">黄芳合作码 / 水疗+鱼宴 / 10% ；员工 / 水疗 / 10%<cite>— L2 佣金规则表</cite></div>
+        <p class="mt16"><strong>折算：</strong>鱼宴+鱼疗定价 HK$198–268，HK$30–50 固定佣金 = <strong>11%–25%</strong>。与 L2 的 10% 不一致，且固定额佣金在涨价时不会自动调整（比例佣金会）。</p>
+        <p><strong>建议：</strong>全案统一采用<strong>比例佣金</strong>，不出现固定额佣金。固定额只用于一次性激励（券、房券、现金奖）。</p>
+      </div>
+
+      <div class="card flat" style="border-left:3px solid var(--warn);margin-top:14px">
+        <h3><span class="badge b-warn">C5</span> 渠道归属时效：终身归因 vs 非独家代理</h3>
+        <div class="quote" style="margin-top:10px">客户扫码后<strong>终身或 90 天内</strong>消费都归因到该码<cite>— L2 黄芳合作码设计</cite></div>
+        <div class="quote">非独家代理，先签 30—50 家<cite>— L1 给旅行社的政策</cite></div>
+        <p class="mt16"><strong>为何必炸：</strong>30–50 家<strong>非独家</strong>代理 + <strong>长时效</strong>归因，是必然的抢单结构。同一个客人可能先是 A 社的团、三个月后自己带家人再来，扫了园区口的小红书码——这单算谁的？原文只给"黄芳码"写了规则，普通渠道码<strong>一个字都没写</strong>。</p>
+        <p><strong>建议（必须写进合同）：</strong>末次点击归因 + <strong>90 天</strong>有效 + 超过 90 天自动释放至园区直客池 + 同一团内以团码为唯一归因（团内不认个人码）。</p>
+      </div>
+
+      <div class="card flat" style="border-left:3px solid var(--warn);margin-top:14px">
+        <h3><span class="badge b-warn">C6</span> 激励方向：激进获客 vs 保守风控</h3>
+        <div class="quote" style="margin-top:10px">首团奖励 500—1000 港币车费补贴；季度销售竞赛送客前 3 名奖现金；满 1000 人返 2%，满 3000 人返 5%<cite>— L1</cite></div>
+        <div class="quote">71–100 分：高风险，全额预付、暂停新团、资源不锁<cite>— L3 风控评分</cite></div>
+        <p class="mt16"><strong>为何必炸：</strong>同一个渠道，L1 在拼命鼓励它多拉客，L3 在拼命限制它的额度。新签约渠道天然是"无历史履约数据"的，按 L3 的模型（渠道类型与年限占 10% 权重）会被判为偏高风险，于是拿不到授信、要先全额预付。而 L1 承诺的第一印象是"你是我们的合作伙伴"。<strong>两套话术在同一个销售周期内打架。</strong></p>
+        <p><strong>建议：</strong>做一条明确的<strong>解锁曲线</strong>——新渠道前 2 个月全额预付（话术："系统统一规则"）→ 履约良好后自动解锁 50% 授信 → 稳定 6 个月后解锁全额月结。把风控从"门槛"改写成"进度条"。</p>
+      </div>
+
+      <div class="card flat" style="border-left:3px solid var(--warn);margin-top:14px">
+        <h3><span class="badge b-warn">C7</span> 「静默」与「披露」的表述冲突</h3>
+        <div class="quote" style="margin-top:10px">建议把它定义为<strong>"后台静默风控与应收信用模块"</strong>，而不是对渠道商完全隐藏的"秘密程序"<cite>— L3 开头</cite></div>
+        <div class="quote">所有规则写入合同附件，渠道可查统一规则，但<strong>看不到自己的评分</strong>……不返回 risk_score、黑名单、逾期等级<cite>— L3 技术实现</cite></div>
+        <p class="mt16"><strong>判定：实质自洽，表述冲突。</strong>文档自己其实已经把这条路走对了——规则披露 + 评分脱敏，法理上完全站得住。但"静默""隐藏程序"这两个词会主动制造敌意。一旦被渠道或媒体写成「园区有一套秘密程序在悄悄克扣佣金」，前面所有合规努力归零，而且解释成本极高。</p>
+        <p><strong>建议改名为：</strong><strong>「履约信用与资源预锁机制」</strong>。同一套东西，一个名字是暗箱，一个名字是规则。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 边界冲突 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">四、两处边界冲突（不致命但需预先对齐）</h2>
+    <div class="grid g2">
+      <div class="card acc-warn">
+        <h3><span class="icon">B1</span> 90 天首发团 vs MVP 2–3 个月</h3>
+        <p>时间上基本吻合（90 天 ≈ 3 个月），但风险在于"首发团"通常是营销驱动的硬日期，而系统上线是工程驱动的软日期。<strong>如果首发团早于归因系统上线，第一波客源将全部无法归因</strong>——渠道拿不到佣金，信任一次就没了。</p>
+        <p><strong>建议：</strong>首发团若必须早于系统上线，就用"简易归因"兜底（专属优惠码 + 人工登记渠道号），确保佣金可追溯，系统上线后补录。</p>
+      </div>
+      <div class="card acc-warn">
+        <h3><span class="icon">B2</span> 四套价格并存的护栏缺失</h3>
+        <p>散客套票 HK$299–399、旅行社卖 HK$399–599、OTA 价、会员价——四套价格同时在市场上流通。原文没有任何<strong>价格护栏</strong>条款。游客在园区现场用手机搜到 OTA 更便宜，是投诉与差评的经典来源。</p>
+        <p><strong>建议：</strong>设置最低零售价（MAP）条款——渠道不得低于门市价 9 折销售，违规即扣减佣金；会员价只对已消费客户开放，且不与渠道价在同一可见页面出现。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 缺失规则 -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">五、5 条整段缺失的关键规则</h2>
+    <p class="sec-desc">这五项不是"写得不好"，是"完全没写"。每一项都会在运行 3 个月内变成实际纠纷。</p>
+
+    <ol class="num-list">
+      <li>
+        <strong>渠道归属裁决规则。</strong>首触还是末触？团码与个人码谁优先？员工推荐码与渠道码冲突时算谁的？直客池保护期多长？——30–50 家非独家代理下，这是最高频的争议源，必须先于签约定死。
+      </li>
+      <li>
+        <strong>财务与成本模型。</strong>三份文档合计出现 0 个成本数字。没有成本，就无法判断"30 人以上 25% 佣金"这条规则是否可承受——也就是说，<strong>无法判断这条政策本身是否合法地可持续</strong>。这是全案最大的逻辑空洞。
+      </li>
+      <li>
+        <strong>资源容量与承载上限。</strong>T-3 锁位规则成立的前提是知道总容量：车位多少个、餐位多少个、水疗位多少个、民宿房多少间。原文全程未出现任何容量数字。没有容量，"锁位 / 释放"就是一句空话，也无法防止超卖。
+      </li>
+      <li>
+        <strong>渠道违约处置与退出机制。</strong>原文只有"后台记录渠道违约"四个字。缺少：违约金比例、保证金没收条件、已预售客户的安置责任划分、黑名单申诉与解除机制、渠道主动退出的佣金清算规则。
+      </li>
+      <li>
+        <strong>价格护栏与渠道平权条款。</strong>散客价/OTA 价/旅行社价/会员价四轨并存，缺最低零售价（MAP）条款与违规罚则。同时缺"统一规则"的书面承诺——L3 提到的"不能对渠道商进行秘密歧视性定价"需要一条对应的<strong>规则公示与变更通知机制</strong>（规则变更提前 30 天书面通知）。
+      </li>
+    </ol>
+
+    <div class="callout danger mt24">
+      <div class="t">◆ 一句话总结本节</div>
+      <p>
+        这套方案的逻辑问题不在"想得不深"，而在"写得太像招商文案"——每个数字都漂亮，但没有一个数字被另一份文档校验过。
+        <strong>7 处冲突里有 4 处是佣金口径，而佣金恰恰是全案唯一直接决定钱怎么分的规则。</strong>
+        把佣金口径统一、把归属规则写死、把成本模型补上，这三件事做完，逻辑性可以从 6 分提到 8.5 分。
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="pagenav">
+    <a href="feasibility.html"><div class="dir">上一节</div><div class="tt">← 可行性分析</div></a>
+    <a href="business-model.html" class="rt"><div class="dir">下一节</div><div class="tt">商业模式 →</div></a>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div>港澳生态园方案 · 深度解码 —— 基于三份原始方案的独立审阅报告</div>
+      <div class="flinks">
+        <a href="index.html">总览</a><a href="feasibility.html">可行性</a><a href="logic.html">逻辑性</a>
+        <a href="business-model.html">商业模式</a><a href="profit-model.html">盈利模式</a>
+        <a href="risk-compliance.html">风险合规</a><a href="roadmap.html">落地建议</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function(){
+  var T = SITE.theme;
+  var cats = ['一日游','两天一夜','自由行套票','鱼宴+水疗','企业团建','员工推荐'];
+  var l1 = [20, 18, 20, 18, 17.5, null];
+  var l2 = [20, 25, 10, 10, null, 10];
+
+  SITE.render('commChart', SITE.base({
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},
+      formatter:function(p){
+        var s = p[0].axisValue + '<br/>';
+        p.forEach(function(x){ s += x.marker + x.seriesName + '：' + (x.value==null?'未定义':x.value+'%') + '<br/>'; });
+        return s;
+      }},
+    legend:{top:0,right:0,data:['L1 业务层口径（折算中值）','L2 系统层口径']},
+    grid:{left:14,right:20,top:48,bottom:8,containLabel:true},
+    xAxis:SITE.catAxis(cats),
+    yAxis:SITE.valAxis('佣金率 %'),
+    series:[
+      { name:'L1 业务层口径（折算中值）', type:'bar', barGap:'12%', barWidth:'26%',
+        itemStyle:{color:T.accent,borderRadius:[5,5,0,0]},
+        label:{show:true,position:'top',color:T.dim,fontSize:11,fontFamily:'monospace',
+          formatter:function(p){return p.value==null?'—':p.value+'%';}},
+        data:l1 },
+      { name:'L2 系统层口径', type:'bar', barWidth:'26%',
+        itemStyle:{color:T.warn,borderRadius:[5,5,0,0]},
+        label:{show:true,position:'top',color:T.dim,fontSize:11,fontFamily:'monospace',
+          formatter:function(p){return p.value==null?'未定义':p.value+'%';}},
+        data:l2 }
+    ]
+  }));
+})();
+</script>
+</body>
+</html>
