@@ -87,6 +87,9 @@ a:hover{text-decoration:underline}
   box-shadow:0 18px 44px rgba(0,0,0,.72);
 }
 .nav-item:hover .drop{opacity:1;visibility:visible;transform:translate(-50%,0)}
+/* 最后一个导航项的下拉右对齐，避免溢出视口 */
+.nav > .nav-item:last-child .drop{left:auto;right:0;transform:translate(0,6px)}
+.nav > .nav-item:last-child:hover .drop{transform:translate(0,0)}
 .drop a{
   display:block;padding:8px 12px;border-radius:var(--radius-sm);
   color:var(--text-dim);font-size:13px;transition:.13s;

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一码通行系统 · 港澳生态园新规划</title>
+<meta name="description" content="从「一码一渠道（分钱）」升级为「一码通行（认得人）」：一号通行的码体系、三条通行链路、支付与结算架构、技术选型、数据模型变更与车牌合规。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="hdr-inner">
+    <div class="brand"><span class="dot"></span>港澳生态园 · 方案解码<span class="sub">/ ANALYSIS</span></div>
+    <nav class="nav">
+      <div class="nav-item">
+        <a href="index.html" data-page="index.html">总览 <span class="caret">▼</span></a>
+        <div class="drop">
+          <a href="feasibility.html">可行性分析<span class="k">市场 · 资源 · 合规 · 技术 · 组织 · 时间</span></a>
+          <a href="logic.html">逻辑性分析<span class="k">逻辑栈 · 一致性矩阵 · 矛盾清单</span></a>
+          <a href="business-model.html">商业模式<span class="k">九宫格画布 · 渠道结构</span></a>
+          <a href="profit-model.html">盈利模式<span class="k">单位经济 · 佣金负担 · 盈亏平衡</span></a>
+          <a href="risk-compliance.html">风险与合规<span class="k">二清 · 跨境税务 · 牌照清单</span></a>
+          <a href="roadmap.html">落地建议<span class="k">P0–P3 优先级 · 90 天修正版</span></a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="feasibility.html" data-page="feasibility.html">可行性</a></div>
+      <div class="nav-item"><a href="logic.html" data-page="logic.html">逻辑性</a></div>
+      <div class="nav-item"><a href="business-model.html" data-page="business-model.html">商业模式</a></div>
+      <div class="nav-item"><a href="profit-model.html" data-page="profit-model.html">盈利模式</a></div>
+      <div class="nav-item"><a href="risk-compliance.html" data-page="risk-compliance.html">风险合规</a></div>
+      <div class="nav-item"><a href="roadmap.html" data-page="roadmap.html">落地建议</a></div>
+      <div class="nav-item">
+        <a href="channel-shift.html" data-page="channel-shift.html">新规划 <span class="caret">▼</span></a>
+        <div class="drop">
+          <a href="channel-shift.html">渠道结构重构<span class="k">自由行 + 港车北上 80% / 旅行社 20%</span></a>
+          <a href="marketing.html">宣传推广方案<span class="k">内容获客 · 车主触达 · 私域</span></a>
+          <a href="qr-pass.html">一码通行系统<span class="k">车牌即门票 · 全园一码核销</span></a>
+          <a href="roadmap-v2.html">落地路线图 v2<span class="k">90 天 · 经济重算 · KPI</span></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">Re-plan v2 · One Pass</span>
+    <h1>一码通行：<em>车牌就是门票</em><br>从「分钱工具」升级为「认得人的系统」</h1>
+    <p class="lead">
+      原方案 L2 设计的是<strong>归因码</strong>——9 类二维码，核心命题是「这笔钱算谁的」。
+      渠道反转到 80% 自驾直客之后，这个命题失效了：客户自己来的，不用分给谁。
+      新的命题是<strong>「这个客人是谁、他刚才在园里花了什么、下次怎么把他叫回来」</strong>。
+      好消息：原系统的数据库、清算引擎、码管理模块<strong>全部可复用</strong>，只是主从关系反了。
+    </p>
+    <div class="meta">
+      <span class="badge b-ok">客户操作步数 11 → 3</span>
+      <span class="badge b-info">L2 资产复用率 ≈ 65%</span>
+      <span class="badge b-purple">LPR 车牌无感进场</span>
+      <span class="badge b-warn">一期投入 ¥97 万</span>
+      <span class="badge b-danger">车牌属敏感个人信息</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KPI ============ -->
+<section class="sec-tight">
+  <div class="wrap">
+    <div class="grid g4">
+      <div class="kpi">
+        <div class="lbl">入园耗时（目标）</div>
+        <div class="val up" data-count="30" data-suf=" 秒">30 秒</div>
+        <div class="note">车牌识别放行，无停车扫码动作</div>
+      </div>
+      <div class="kpi">
+        <div class="lbl">园内核销点</div>
+        <div class="val accent" data-count="11" data-suf=" 个">11 个</div>
+        <div class="note">全部接 OnePass，一码通用</div>
+      </div>
+      <div class="kpi">
+        <div class="lbl">一期投入（IT + 硬件）</div>
+        <div class="val warn" data-count="97" data-pre="¥" data-suf=" 万">¥97 万</div>
+        <div class="note">月摊 ¥40k + 运维 ¥20k，已计入固定成本</div>
+      </div>
+      <div class="kpi">
+        <div class="lbl">原 L2 资产复用率</div>
+        <div class="val up" data-count="65" data-suf="%">65%</div>
+        <div class="note">数据库 8 表复用、清算引擎简化保留</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 一、范式转变 ============ -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">一、范式转变：归因码 → 通行码</h2>
+    <p class="sec-desc">
+      这不是加一个功能，是换一个主命题。两者的设计约束、失败后果、对数据的要求完全不同。
+    </p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>维度</th><th>归因码（原 L2）</th><th>通行码 OnePass（新）</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">回答的问题</td><td>这笔钱算哪个渠道的？</td><td class="pos">这个人是谁？他花了什么？怎么叫他回来？</td></tr>
+          <tr><td class="strong">主要用户</td><td>渠道商 / 园区财务</td><td class="pos">客户自己（自助操作）</td></tr>
+          <tr><td class="strong">核心载体</td><td>9 类静态二维码（一码一渠道）</td><td class="pos">车牌（无感）+ OnePass 动态码 + 会员 ID</td></tr>
+          <tr><td class="strong">生命周期</td><td>按渠道 / 按团，一次性</td><td class="pos">按人，跨次长期有效</td></tr>
+          <tr><td class="strong">覆盖营收</td><td>100%（所有客源都要分账）</td><td class="pos">100% 通行，仅 20% 团客需要归因</td></tr>
+          <tr><td class="strong">失败后果</td><td>佣金算错，渠道投诉</td><td class="pos neg">客人进不来 / 结不了账 —— 直接营业中断</td></tr>
+          <tr><td class="strong">可用性要求</td><td>T+1 内可人工修正</td><td class="pos neg">实时。闸机断网必须有离线兜底</td></tr>
+          <tr><td class="strong">在系统中的地位</td><td>核心基础设施</td><td class="pos">核心基础设施；归因模块降级为子模块</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout ok">
+      <div class="t">◆ 原 L2 方案没有被浪费，只是主从关系反了</div>
+      <p>
+        原作者设计的 <code>channels / qrcodes / orders / commissions / settlements</code> 五张表，
+        在 20% 团客场景下依然<strong>逐字可用</strong>——它们处理的就是「旅行社带来的团，佣金怎么算、怎么结」。
+        新增的是 <code>passes / vehicles / gates / lpr_events / redemptions / wallet_txns</code> 六张表，
+        处理「自驾散客怎么进门、怎么核销、怎么复购」。
+        <strong>不是推翻重做，是在原系统旁边接一根主干。</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 二、码体系重构 ============ -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">二、码体系重构：从 9 类平铺到三层结构</h2>
+    <p class="sec-desc">
+      原方案的 9 类码是平铺的，彼此没有层级关系，导致归因裁决规则无处安放。
+      新结构按「身份层 / 场景层 / 渠道层」三层组织，每层职责唯一。
+    </p>
+
+    <div class="grid g3">
+      <div class="card acc-ok">
+        <h3><span class="icon">I</span>身份层（长期）· 3 类</h3>
+        <p><strong>车牌码</strong> — 一次绑定，终身无感。核心身份载体，用于入园放行与停车计费。</p>
+        <p><strong>OnePass 动态码</strong> — 小程序内每秒刷新的二维码。用于所有园内核销，防截图盗用。</p>
+        <p><strong>会员 ID</strong> — 不可见，用于跨次归集消费、积分、权益、复购触达。这是一码通行真正的资产。</p>
+      </div>
+      <div class="card acc-warn">
+        <h3><span class="icon">II</span>场景层（现场）· 4 类</h3>
+        <p><strong>核销点码</strong> — 鱼餐馆、水疗、采摘、礼盒店、咖啡棚、茶庄、鱼塘、民宿，每点一码。</p>
+        <p><strong>闸机码</strong> — 车牌识别失败时的兜底二维码，贴在车道旁。</p>
+        <p><strong>拼车码</strong> — 无车自由行的口岸拼车班次码（原「巴士码」改造）。</p>
+        <p><strong>时段码</strong> — 分时段预约的入场时段标识。</p>
+      </div>
+      <div class="card acc-danger">
+        <h3><span class="icon">III</span>渠道层（归因，仅 20%）· 4 类</h3>
+        <p><strong>旅行社渠道码</strong> — 保留原设计，仅服务团客归因。</p>
+        <p><strong>团码</strong> — 团客入团、点人数，保留原设计。</p>
+        <p><strong>推荐码 / 社团码</strong> — 老客裂变与社团团长使用，<strong>按实物回馈而非现金佣金</strong>。</p>
+        <p><strong>虚拟渠道码</strong> — 小红书 / Facebook / 抖音，直接归园区直营。</p>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <div class="t">◆ 关键设计：团客可以「升级」为通行码</div>
+      <p>
+        团客入园后，现场扫一次 OnePass 生成码，即可把园内<strong>所有二次消费从团账里剥离，直接算作园区直营</strong>。
+        这意味着旅行社只拿到门票那一部分的 15% 佣金，水疗、酒水、礼盒、认养全部不用付佣金。
+        这是原方案（按整团归因）里没有的设计，也是渠道反转最锋利的一刀——
+        它把「二销」这块利润从渠道分成里彻底解放出来，同时旅行社的账面佣金率不变（仍 15%），
+        感知上没有受损，抵触最小。
+      </p>
+    </div>
+
+    <h3 class="sub">命名规范（可直接发给开发）</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>类型</th><th>编码格式</th><th>示例</th><th>归属</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">车牌</td><td class="mono">PLT-{属地}-{号牌}</td><td class="mono">PLT-HK-ZA1234</td><td>园区直营</td></tr>
+          <tr><td class="strong">OnePass</td><td class="mono">OP-{YYYYMM}-{8位随机}</td><td class="mono">OP-202610-a3f9c2d1</td><td>园区直营</td></tr>
+          <tr><td class="strong">核销点</td><td class="mono">POS-{场景}{序号}</td><td class="mono">POS-SPA01 / POS-FISH02</td><td>园区直营</td></tr>
+          <tr><td class="strong">闸机</td><td class="mono">GATE-{方向}{序号}</td><td class="mono">GATE-IN01 / GATE-OUT01</td><td>园区直营</td></tr>
+          <tr><td class="strong">拼车班次</td><td class="mono">SHUT-{口岸}{日期}-{班次}</td><td class="mono">SHUT-HZMB20261018-03</td><td>园区直营</td></tr>
+          <tr><td class="strong">旅行社</td><td class="mono">CH-HK-{编号}</td><td class="mono">CH-HK-007</td><td>渠道归因</td></tr>
+          <tr><td class="strong">团</td><td class="mono">GRP-{日期}-{渠道}-{序号}</td><td class="mono">GRP-20261018-HK007-01</td><td>渠道归因</td></tr>
+          <tr><td class="strong">推荐 / 社团</td><td class="mono">REF-{类型}{编号}</td><td class="mono">REF-CLUB023 / REF-MBR8891</td><td>实物回馈</td></tr>
+          <tr><td class="strong">虚拟渠道</td><td class="mono">VCH-{平台}{编号}</td><td class="mono">VCH-XHS01 / VCH-FB02</td><td>园区直营</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 三、三条链路 ============ -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">三、三条通行链路</h2>
+    <p class="sec-desc">
+      对应渠道结构里的三类客群。注意每条链路的<strong>最后一步都是「自动结算 + 推送明细」</strong>——
+      这一步同时完成三件事：收款、生成数据资产、触发复购触达。
+    </p>
+
+    <h3 class="sub">链路 A · 自驾家庭（占 55%）—— 全流程只有 3 步操作</h3>
+    <div class="tl">
+      <div class="tl-item">
+        <div class="ph">行前 · 第 1 步</div>
+        <h4>小程序选日期时段 + 绑车牌</h4>
+        <p class="small">选时段（分时削峰）→ 输入车牌或拍行驶证自动识别 → 微信/支付宝授权免密支付 → 收到 OnePass 与预约凭证。支持「不绑车牌」降级为纯动态码，但绑牌可免停车费。</p>
+      </div>
+      <div class="tl-item ok">
+        <div class="ph">到园 · 0 步操作</div>
+        <h4>闸机 LPR 识别车牌 → 自动放行</h4>
+        <p class="small">车道屏显示「欢迎 · 3 人已入园 · 预授权额度 HK$500 · 车位于 B 区 27 号」。同时后台完成预授权。识别失败自动降级为扫车道兜底码，<strong>永远保留 1 条人工车道</strong>。</p>
+      </div>
+      <div class="tl-item ok">
+        <div class="ph">园内 · 第 2 步</div>
+        <h4>出示 OnePass 一码核销全园</h4>
+        <p class="small">鱼餐馆点单、水疗预约、采摘、礼盒、咖啡棚、茶庄——全部同一个码，POS 扫码即核销、即扣款（走预授权额度，无需每笔输密码）。</p>
+      </div>
+      <div class="tl-item ok">
+        <div class="ph">离园 · 0 步操作 + 第 3 步确认</div>
+        <h4>闸机识别车牌 → 自动结算</h4>
+        <p class="small">按实际消费结算，多退少补；推送电子小票与消费明细。第 3 步是「看一眼明细」，不是必须操作。</p>
+      </div>
+      <div class="tl-item">
+        <div class="ph">事后 · 自动化</div>
+        <h4>积分入账 + 复购券 + 邀请裂变码</h4>
+        <p class="small">自动加入对应私域群（自驾家庭群），推送 30 天内有效的复购券与邀请码。</p>
+      </div>
+    </div>
+
+    <h3 class="sub">链路 B · 无车自由行（占 25%）</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="num">步骤</th><th>动作</th><th>载体</th><th>核销</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td class="strong">购买「口岸拼车 + 入园套票」</td><td>小程序</td><td>生成 OnePass</td></tr>
+          <tr><td class="num">2</td><td class="strong">选口岸（港珠澳大桥 / 横琴 / 拱北）+ 班次</td><td>小程序</td><td>锁定拼车座位</td></tr>
+          <tr><td class="num">3</td><td class="strong">上车扫码</td><td>拼车码</td><td>核销座位</td></tr>
+          <tr><td class="num">4</td><td class="strong">到园门口扫 OnePass 入场</td><td>步行闸机码</td><td>核销门票</td></tr>
+          <tr><td class="num">5</td><td class="strong">园内同链路 A（一码通用）</td><td>OnePass</td><td>各核销点</td></tr>
+          <tr><td class="num">6</td><td class="strong">返程班次扫码上车</td><td>拼车码</td><td>核销返程</td></tr>
+          <tr><td class="num">7</td><td class="strong">自动结算 + 推送明细</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-note">
+      这是原 L1「口岸接送」能力的正确残留形态：<strong>不做包团，做班次</strong>。
+      按小时发车的 7 座车，4–6 人成行即发，成本由乘客分摊（约 HK$60–90/人），园区不承担空驶风险。
+    </div>
+
+    <h3 class="sub">链路 C · 团客（占 20%）—— 保留原 L2 设计</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="num">步骤</th><th>动作</th><th>与原 L2 的差异</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td class="strong">旅行社渠道码 / 团码 归因</td><td>保留</td></tr>
+          <tr><td class="num">2</td><td class="strong">T-3 预付 50% 锁定周中资源</td><td>pos 授信门槛提高，仅老渠道可授信</td></tr>
+          <tr><td class="num">3</td><td class="strong">成员扫码入团、导游端点名</td><td>保留</td></tr>
+          <tr><td class="num">4</td><td class="strong">园内消费按团归因</td><td class="neg">默认按整团归因（可被成员主动升级剥离）</td></tr>
+          <tr><td class="num">5</td><td class="strong">出团日结清尾款</td><td>pos 从月结改为出团日结</td></tr>
+          <tr><td class="num">6</td><td class="strong">佣金结算（统一 15%，周中适用）</td><td class="pos">取消单团人数阶梯，改单一费率</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="chart mt24" id="stepChart"></div>
+    <div class="tbl-note">
+      客户视角的操作步数对比。从 11 步降到 3 步，减少的不只是麻烦——每一步都是一次流失和一次人力成本。
+      按日均 200 人到园、每步 15 秒计，一码通行每月为园区省下约 <strong>1,800 小时</strong>的现场操作时间。
+    </div>
+  </div>
+</section>
+
+<!-- ============ 四、核销点 ============ -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">四、园内 11 个核销点</h2>
+    <p class="sec-desc">
+      每个核销点都是一个数据采集口。这不是收银设备清单，而是<strong>用户画像的 11 个传感器</strong>。
+    </p>
+    <div class="grid g4">
+      <div class="card"><h3><span class="icon">1</span>入口闸机 ×2</h3><p>LPR 车牌识别、预授权、人数确认、停留时长开始计时。</p></div>
+      <div class="card"><h3><span class="icon">2</span>鱼餐馆</h3><p>点单 + 核销 + 加菜。记录口味偏好（辣/清淡）、桌型（家庭/情侣）。</p></div>
+      <div class="card"><h3><span class="icon">3</span>水疗中心</h3><p>项目、时长、加钟。利润引擎，也是 attach 率的关键观测点。</p></div>
+      <div class="card"><h3><span class="icon">4</span>蔬果采摘</h3><p>按斤计价，亲子客群主力。记录同行儿童数量（家庭画像）。</p></div>
+      <div class="card"><h3><span class="icon">5</span>鱼塘体验</h3><p>垂钓 / 捞鱼 / 喂鱼 / 认养。认养是一次性大额预付，需单独流程。</p></div>
+      <div class="card"><h3><span class="icon">6</span>雾化咖啡棚</h3><p>参观、品鉴、烘豆体验、豆子零售。差异化内容载体。</p></div>
+      <div class="card"><h3><span class="icon">7</span>茶庄</h3><p>品茶、采茶、茶浴体验券核销。银发客群停留点。</p></div>
+      <div class="card"><h3><span class="icon">8</span>礼盒 / 特产店</h3><p>活鱼礼盒、咖啡豆、茶。二销与离园前消费的最后机会。</p></div>
+      <div class="card"><h3><span class="icon">9</span>民宿前台</h3><p>入住登记、房型升级、加早餐。两日一夜客群。</p></div>
+      <div class="card"><h3><span class="icon">10</span>充电桩</h3><p>充电时长与电量。识别 EV 车主，是港澳客群的高价值标签。</p></div>
+      <div class="card"><h3><span class="icon">11</span>出口闸机</h3><p>结算、抵扣停车费、发放复购券、触发私域入群。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 五、支付与结算 ============ -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">五、支付与结算架构</h2>
+    <p class="sec-desc">
+      原方案最正确的一句「客户消费先进入园区统一商户号 / 持牌支付机构，不得先进旅行社账户」必须原样保留。
+      新增的难点是：<strong>港澳客户的钱怎么进来，以及离园自动扣款怎么做到合规。</strong>
+    </p>
+
+    <div class="grid g2" style="align-items:start">
+      <div class="card flat">
+        <h3>资金入口：必须支持港澳钱包</h3>
+        <ul>
+          <li><strong>AlipayHK</strong> — 香港用户渗透率高，小程序内可直接调起</li>
+          <li><strong>WeChat Pay HK</strong> — 微信生态内最顺滑，与小程序同源</li>
+          <li><strong>PayMe</strong> — 香港本地高频，但需独立集成</li>
+          <li><strong>八达通（Apple Pay / 实体）</strong> — 银发客群必备兜底</li>
+          <li><strong>Visa / Mastercard 3DS</strong> — 境外卡通道，覆盖所有剩余情况</li>
+          <li><strong>微信支付 / 支付宝（内地版）</strong> — 内地客与本地客</li>
+        </ul>
+        <p class="small">港币与人民币双币标价。汇率在预约页明示并锁定 24 小时，避免现场争议。</p>
+      </div>
+      <div class="card flat">
+        <h3>免密支付：合规的三条硬约束</h3>
+        <ul>
+          <li><strong>必须走持牌机构</strong> — 免密代扣属支付业务，园区不得自建资金池，也不得自建代扣协议</li>
+          <li><strong>必须先预授权</strong> — 入园时冻结额度（建议 HK$500/车），离园按实际消费 capture，多退少补</li>
+          <li><strong>必须可随时撤销</strong> — 小程序内一键解除免密协议，且协议文本单独签署、单独同意</li>
+        </ul>
+        <p class="small">拒付率是这条链路的生命线：任一通道拒付率 &gt;2% 立即停用。同时保留「现场逐笔付款」的降级路径。</p>
+      </div>
+    </div>
+
+    <h3 class="sub">资金流与结算</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>客源</th><th class="num">占比</th><th>资金路径</th><th>结算周期</th><th>佣金</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">自驾自由行</td><td class="num">55%</td><td>客户端 → 园区商户号 / 持牌机构 → 园区账户</td><td class="pos">T+1 入账</td><td class="num pos">0</td></tr>
+          <tr><td class="strong">无车自由行</td><td class="num">25%</td><td>同上；拼车费用单独拆账给承运方</td><td class="pos">T+1 入账</td><td class="num pos">0（拼车抽 5–8%）</td></tr>
+          <tr><td class="strong">团客</td><td class="num">20%</td><td>T-3 预付 50% 进园区账户；出团日结清</td><td>出团日结清</td><td class="num neg">15%（仅门票）</td></tr>
+          <tr><td class="strong">社团 / 推荐人</td><td class="num">—</td><td>全部进园区账户</td><td>—</td><td class="num pos">实物回馈，无现金</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-note">
+      80% 营收 T+1 到账且无佣金——这是渠道反转在现金流上的最大红利。
+      原模型下，团客营收可能 30–60 天才能落袋，还得先垫接待成本。
+    </div>
+  </div>
+</section>
+
+<!-- ============ 六、技术架构 ============ -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">六、技术架构与一期投入</h2>
+
+    <div class="stack">
+      <div class="stack-item">
+        <div class="no" style="background:var(--accent-soft);color:var(--accent)">1</div>
+        <div>
+          <div class="tt">客户侧 · 微信小程序 + H5</div>
+          <div class="dd">预约、绑车牌、OnePass、明细、积分、裂变邀请。港澳用户支持 +852 手机号注册路径。</div>
+        </div>
+        <div class="rt"><span class="badge b-info">P1</span></div>
+      </div>
+      <div class="stack-item">
+        <div class="no" style="background:var(--accent-soft);color:var(--accent)">2</div>
+        <div>
+          <div class="tt">现场侧 · 闸机 / POS / 收银</div>
+          <div class="dd">LPR 一体机 + 道闸 + 车道屏；核销点手持 POS 与固定收银；全部支持离线核销并在恢复后补传。</div>
+        </div>
+        <div class="rt"><span class="badge b-info">P1</span></div>
+      </div>
+      <div class="stack-item">
+        <div class="no" style="background:var(--accent-soft);color:var(--accent)">3</div>
+        <div>
+          <div class="tt">通行与结算服务</div>
+          <div class="dd">Pass Service · Gate Service · Wallet Service · Redemption Service · 停车计费引擎。原 L2 的 Commission Engine 保留但降级。</div>
+        </div>
+        <div class="rt"><span class="badge b-info">P1–P2</span></div>
+      </div>
+      <div class="stack-item">
+        <div class="no" style="background:var(--purple-soft);color:var(--purple)">4</div>
+        <div>
+          <div class="tt">会员与增长模块</div>
+          <div class="dd">积分、等级、券、邀请裂变、私域入群触发、认养管理。这是降低第二年 CAC 的引擎。</div>
+        </div>
+        <div class="rt"><span class="badge b-purple">P2</span></div>
+      </div>
+      <div class="stack-item">
+        <div class="no" style="background:var(--warn-soft);color:var(--warn)">5</div>
+        <div>
+          <div class="tt">渠道归因与风控（复用原 L2）</div>
+          <div class="dd">仅服务 20% 团客。佣金引擎简化为单一费率，授信与逾期风控保留但门槛提高。</div>
+        </div>
+        <div class="rt"><span class="badge b-warn">P3</span></div>
+      </div>
+    </div>
+
+    <div class="grid g2 mt24" style="align-items:start">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>一期投入科目</th><th class="num">金额</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td class="strong">小程序 + 后端</td><td class="num">¥380,000</td><td>复用原 L2 数据模型，不重复开发</td></tr>
+            <tr><td class="strong">LPR 闸机（3 车道）</td><td class="num">¥240,000</td><td>2 条自动 + 1 条人工兜底，含道闸与车道屏</td></tr>
+            <tr><td class="strong">充电桩（10 慢 + 2 快）</td><td class="num">¥155,000</td><td>港澳 EV 车主的强决策因子</td></tr>
+            <tr><td class="strong">POS 与收银设备</td><td class="num">¥52,000</td><td>手持 12 台 + 固定 6 台</td></tr>
+            <tr><td class="strong">屏显 / 语音 / 价签</td><td class="num">¥48,000</td><td>车道屏、核销点屏、电子价签</td></tr>
+            <tr><td class="strong">网络与机柜</td><td class="num">¥35,000</td><td>闸机与核销点专网、UPS</td></tr>
+            <tr><td class="strong">实施、联调与培训</td><td class="num">¥60,000</td><td>含港澳号牌字库训练与现场测试</td></tr>
+            <tr style="background:var(--panel-2)">
+              <td class="strong">合计</td><td class="num"><strong>¥970,000</strong></td>
+              <td>月摊 ¥40k（24 期）+ 运维 ¥20k = ¥60k/月</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="chart" id="capexChart"></div>
+    </div>
+
+    <h3 class="sub">必须先做的 5 项技术验证（2 周内可完成，属于 P0 门禁）</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="num">#</th><th>验证项</th><th>通过标准</th><th>不通过的后果</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td class="strong">港澳号牌 + 临时电子牌 LPR 识别率</td><td>采集 200 张真实样本，识别率 ≥97%</td><td class="neg">无感通行方案作废，退回全部扫码</td></tr>
+          <tr><td class="num">2</td><td class="strong">逆光 / 雨天 / 夜间场景稳定性</td><td>三个场景各测试 50 次，失败率 &lt;3%</td><td>需增加补光与遮阳改造</td></tr>
+          <tr><td class="num">3</td><td class="strong">AlipayHK / WeChat Pay HK / PayMe 在小程序内可用性</td><td>三家均能完成支付与退款</td><td class="neg">港澳客支付转化率大幅下降</td></tr>
+          <tr><td class="num">4</td><td class="strong">免密预授权对港澳用户的开通率</td><td>测试样本开通率 ≥60%</td><td>需保留现场逐笔付款为主路径</td></tr>
+          <tr><td class="num">5</td><td class="strong">+852 手机号注册小程序主体的路径</td><td>可完成注册与登录</td><td>需改用邮箱 / 电子票降级方案</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout danger">
+      <div class="t">◆ 第 1 项是生死线</div>
+      <p>
+        港澳车牌格式与内地差异大，且港车北上车辆多挂<strong>临时电子牌</strong>，标准 LPR 字库很可能识别不了。
+        这一项花 2 周、几千块钱就能测出来。<strong>在测试通过之前，不要采购任何闸机硬件，不要给客人任何「车牌即入」的承诺。</strong>
+        不通过也有 Plan B：全部改扫动态码 + 人工车道，只是客户体验从 3 步回到 4 步，不影响模式成立。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 七、数据模型 ============ -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">七、数据模型：新增 8 表，复用 8 表</h2>
+    <div class="grid g2" style="align-items:start">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>新增表</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td class="strong mono">passes</td><td>OnePass 主表：类型、状态、预授权额度、有效期</td></tr>
+            <tr><td class="strong mono">vehicles</td><td>车牌绑定：号牌、属地、车主、是否电动车、绑定时间</td></tr>
+            <tr><td class="strong mono">gates</td><td>闸机与车道：位置、方向、LPR 设备、在线状态</td></tr>
+            <tr><td class="strong mono">lpr_events</td><td>识别事件：车牌、置信度、抓拍图、原始 OCR、时间</td></tr>
+            <tr><td class="strong mono">redemptions</td><td>园内核销流水：通行证、核销点、SKU、数量、金额</td></tr>
+            <tr><td class="strong mono">wallet_txns</td><td>预授权 / 扣款 / 撤销 / 退款流水</td></tr>
+            <tr><td class="strong mono">memberships</td><td>会员等级、积分、来源、加入时间</td></tr>
+            <tr><td class="strong mono">consents_v2</td><td>同意记录：车牌、免密、跨境传输三个独立开关</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>复用表（原 L2）</th><th>新角色</th></tr></thead>
+          <tbody>
+            <tr><td class="strong mono">customers</td><td>客户主表，增加车牌关联</td></tr>
+            <tr><td class="strong mono">orders / order_items</td><td>订单主表复用，增加 pass_id 外键</td></tr>
+            <tr><td class="strong mono">channels</td><td>仅服务 20% 团客与社团推荐</td></tr>
+            <tr><td class="strong mono">qrcodes</td><td>码管理模块复用，新增身份层与场景层</td></tr>
+            <tr><td class="strong mono">commissions</td><td>简化为单一 15% 费率</td></tr>
+            <tr><td class="strong mono">groups / buses</td><td>团客与拼车班次复用</td></tr>
+            <tr><td class="strong mono">settlements</td><td>结算单，增加 T+1 直营结算类型</td></tr>
+            <tr><td class="strong mono">channel_credit</td><td>授信与逾期，门槛提高后保留</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h4 class="mini">核心接口</h4>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>接口</th><th>作用</th><th>关键约束</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">POST /pass/register</td><td>预约 + 绑车牌 → 返回 pass_id</td><td>幂等；同车牌同时段不可重复预约</td></tr>
+          <tr><td class="mono">POST /gate/lpr</td><td>闸机上报识别结果</td><td>须在 300ms 内返回放行指令；超时默认放行 + 事后补录</td></tr>
+          <tr><td class="mono">POST /pass/redeem</td><td>核销点 POS 核销</td><td>支持离线核销 + 恢复后补传，防重复核销</td></tr>
+          <tr><td class="mono">POST /wallet/preauth</td><td>入园预授权</td><td>必须走持牌通道；记录授权凭证号</td></tr>
+          <tr><td class="mono">POST /wallet/capture</td><td>离园结算</td><td>多退少补；失败自动转人工收银</td></tr>
+          <tr><td class="mono">GET /pass/{id}/statement</td><td>行程与消费明细</td><td>客户可见自身数据（PIPL 查阅权）</td></tr>
+          <tr><td class="mono">POST /pass/invite</td><td>生成裂变邀请码</td><td>防刷：同设备 / 同 IP 限频</td></tr>
+          <tr><td class="mono">GET /admin/gates/health</td><td>闸机与 LPR 健康度</td><td>识别失败率 &gt;5% 自动告警</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 八、合规 ============ -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">八、车牌合规：一码通行最容易被忽略的风险</h2>
+    <p class="sec-desc">
+      车牌在 PIPL 下属于<strong>可识别特定自然人的敏感个人信息</strong>；港澳的 PDPO 与澳门《个人资料保护法》
+      对「轨迹 + 消费」组合的敏感度更高。以下是必须写死进产品设计的规则。
+    </p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th class="num">#</th><th>规则</th><th>具体要求</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td class="strong">单独同意</td><td>车牌采集与免密支付必须是<strong>两个独立的同意开关</strong>，不与「同意隐私政策」捆绑勾选</td></tr>
+          <tr><td class="num">2</td><td class="strong">三处告知</td><td>入口立牌 + 车道屏 + 小程序弹窗，同步说明采集目的、范围、保留期限、撤回方式</td></tr>
+          <tr><td class="num">3</td><td class="strong">目的限定</td><td>车牌仅用于<strong>通行放行与停车计费</strong>；禁止用于营销画像、禁止与消费数据做关联分析</td></tr>
+          <tr><td class="num">4</td><td class="strong">保留期限</td><td>原始抓拍影像 7 天自动删除；车牌与通行记录 90 天；超期匿名化</td></tr>
+          <tr><td class="num">5</td><td class="strong">禁止跨境回传</td><td>港澳客数据在境内处理，<strong>不回传香港/澳门服务器</strong>；营销触达使用匿名化标签</td></tr>
+          <tr><td class="num">6</td><td class="strong">必须有不绑牌的路径</td><td>提供「不绑车牌」的降级选项（改扫动态码，不享免费停车），<strong>不得强制</strong></td></tr>
+          <tr><td class="num">7</td><td class="strong">查阅与删除权</td><td>小程序内提供「我的数据」页面，可查阅、导出、申请删除</td></tr>
+          <tr><td class="num">8</td><td class="strong">三地法规分别适配</td><td>内地 PIPL + 香港 PDPO + 澳门第 8/2005 号法律，隐私政策需出三套文本</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout ok">
+      <div class="t">◆ 24 小时冷静期（建议保留原方案的这条设计）</div>
+      <p>
+        免密支付授权后 24 小时内可无条件解除；认养等大额预付设 7 天冷静期。
+        这些不是负担——它们是港澳客户愿意绑定车牌的前提条件。
+        <strong>港澳客对「被记录行程」的敏感度远高于内地客，主动给出可撤回的承诺，比事后解释划算得多。</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 九、分期 ============ -->
+<section class="sec" data-reveal>
+  <div class="wrap">
+    <h2 class="sec-title">九、分期实施</h2>
+    <div class="grid g3">
+      <div class="card acc-ok">
+        <h3><span class="icon">P1</span>第 1–2 月 · 通行 MVP</h3>
+        <p>预约 + 绑车牌 + 动态码入场 + 园内扫码核销 + 停车计费 + T+1 结算。</p>
+        <p class="small">此阶段<strong>不做免密支付、不做无感进场</strong>，先把「一码核销全园」跑通。验收标准：连续 7 天无核销失败事故。</p>
+      </div>
+      <div class="card acc-warn">
+        <h3><span class="icon">P2</span>第 3–4 月 · 无感与增长</h3>
+        <p>LPR 无感进场 + 预授权 + 离园自动结算 + 会员积分 + 邀请裂变 + 认养模块。</p>
+        <p class="small">验收标准：车牌识别率 ≥97%、免密开通率 ≥60%、会员注册率 ≥70%。任一不达标先修不做下一步。</p>
+      </div>
+      <div class="card acc-purple">
+        <h3><span class="icon">P3</span>第 5–8 月 · 渠道与风控回归</h3>
+        <p>团客归因模块（复用原 L2）+ 授信风控 + 数据看板 + 跨渠道对账。</p>
+        <p class="small">注意顺序：<strong>系统先服务 80% 的自驾直客，最后才服务 20% 的渠道</strong>。原方案的顺序是反的。</p>
+      </div>
+    </div>
+
+    <div class="callout info mt16">
+      <div class="t">◆ 一句话总结这一页</div>
+      <p>
+        原方案做了一套「分钱系统」，新方案要做一套「认人系统」。
+        分钱系统只在渠道占比 100% 时是核心；认人系统在任何渠道结构下都是核心，
+        因为它决定园区是否拥有自己的客户。
+        <strong>把系统建在「认人」上，是这次渠道反转唯一不可妥协的技术决策。</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="pagenav">
+    <a href="marketing.html">
+      <div class="dir">上一节</div>
+      <div class="tt">← 宣传推广方案</div>
+    </a>
+    <a href="roadmap-v2.html" class="rt">
+      <div class="dir">下一节</div>
+      <div class="tt">落地路线图 v2 →</div>
+    </a>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <div>港澳生态园 · 渠道反转重规划 —— 一码通行系统</div>
+      <div class="flinks">
+        <a href="index.html">总览</a><a href="feasibility.html">可行性</a><a href="logic.html">逻辑性</a>
+        <a href="business-model.html">商业模式</a><a href="profit-model.html">盈利模式</a>
+        <a href="risk-compliance.html">风险合规</a><a href="roadmap.html">落地建议</a>
+        <a href="channel-shift.html">渠道重构</a><a href="marketing.html">宣传推广</a>
+        <a href="qr-pass.html">一码通行</a><a href="roadmap-v2.html">路线图 v2</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function(){
+  var T = SITE.theme;
+
+  /* ---- 客户操作步数对比 ---- */
+  var rows = [
+    { n:'传统团客模式', v:11, c:'#f4212e' },
+    { n:'纯二维码（无车牌）', v:7, c:'#ffad1f' },
+    { n:'一码通行（车牌 + 动态码）', v:3, c:'#00ba7c' }
+  ];
+  SITE.render('stepChart', SITE.base({
+    title:{ text:'客户视角：从入园到离园需要操作的步数',
+      left:'center', top:6, textStyle:{color:T.dim,fontSize:12.5,fontWeight:600} },
+    tooltip:{ trigger:'axis', axisPointer:{type:'shadow'},
+      formatter:function(ps){ return ps[0].name + '<br/><strong>' + ps[0].value + ' 步</strong>'; } },
+    grid:{ left:14, right:60, top:52, bottom:14, containLabel:true },
+    xAxis:SITE.valAxis('步数'),
+    yAxis:SITE.catAxis(rows.map(function(r){ return r.n; })),
+    series:[{
+      type:'bar', barWidth:'52%',
+      label:{ show:true, position:'right', color:T.text, fontSize:14,
+        fontFamily:'monospace', fontWeight:700,
+        formatter:function(p){ return p.value + ' 步'; } },
+      data: rows.map(function(r){
+        return { value:r.v, itemStyle:{ color:r.c, borderRadius:[0,6,6,0] } };
+      })
+    }]
+  }));
+
+  /* ---- 一期投入结构 ---- */
+  SITE.render('capexChart', SITE.base({
+    title:{ text:'一期投入结构 · ¥970,000',
+      left:'center', top:6, textStyle:{color:T.dim,fontSize:12.5,fontWeight:600} },
+    tooltip:{ trigger:'item', formatter:'{b}<br/>¥{c}  （{d}%）' },
+    legend:{ bottom:0, left:'center', textStyle:{color:T.dim,fontSize:11.5}, itemWidth:10, itemHeight:10 },
+    series:[{
+      type:'pie', radius:['40%','68%'], center:['50%','46%'],
+      itemStyle:{ borderColor:'#000', borderWidth:2, borderRadius:3 },
+      label:{ color:T.dim, fontSize:11, formatter:'{d}%' },
+      labelLine:{ lineStyle:{ color:T.border } },
+      data:[
+        { value:380000, name:'小程序 + 后端', itemStyle:{color:'#1d9bf0'} },
+        { value:240000, name:'LPR 闸机 3 车道', itemStyle:{color:'#00ba7c'} },
+        { value:155000, name:'充电桩 12 个', itemStyle:{color:'#8b5cf6'} },
+        { value: 52000, name:'POS 与收银', itemStyle:{color:'#ffad1f'} },
+        { value: 48000, name:'屏显与价签', itemStyle:{color:'#3fa9f5'} },
+        { value: 35000, name:'网络与机柜', itemStyle:{color:'#f4212e'} },
+        { value: 60000, name:'实施与联调', itemStyle:{color:'#5b6470'} }
+      ]
+    }]
+  }));
+})();
+</script>
+</body>
+</html>
